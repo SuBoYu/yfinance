@@ -280,9 +280,9 @@ class TickerBase():
 
         # get info and sustainability
         data = utils.get_json(ticker_url, proxy)
-
+        url = "{}/{}".format(self._scrape_url, self.ticker)
         # holders
-        holders = _pd.read_html(ticker_url+'/holders')
+        holders = _pd.read_html(url+'/holders')
 
         if len(holders)>=3:
             self._major_holders = holders[0]
